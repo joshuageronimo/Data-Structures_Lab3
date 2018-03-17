@@ -3,6 +3,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Joshua Geronimo
+ * CSC-236-01
+ * LAB-3
+ */
+
 public class PrefixMain {
 
     static private final String USER_PROMPT = "Enter the name of the prefix file you want to scan: ";
@@ -22,7 +28,7 @@ public class PrefixMain {
     public static void validatePrefix(String fileName) throws FileNotFoundException {
         Scanner prefixFile = new Scanner(new FileReader(fileName)); /* Scanner object that will read the file. */
         while (prefixFile.hasNextLine()) {
-            PrefixProcess.validateTokens(prefixFile.nextLine(),1);
+            System.out.println(PrefixProcess.validatePrefixExpression(prefixFile.nextLine(),1));
         }
     }
 }
