@@ -5,6 +5,8 @@ import java.util.Stack;
  * Joshua Geronimo
  * CSC-236-01
  * LAB-3
+ *
+ * This class is where the validation & evaluation of a prefix expression processes.
  */
 
 public class PrefixProcess {
@@ -12,10 +14,11 @@ public class PrefixProcess {
     // counter variable will be used to reference our
     // counter in validatePrefixExpression function.
     static private int counter = 1;
-
+    // This Stack will be where the prefix tokens will be pushed
+    // in the evaluatePrefixExpression function.
     static private Stack<String> prefixTokenStack = new Stack<>();
-    static private int operandCounterStreak = 0;
-    static private boolean isDoneEvaluating = false;
+    // This String variable will be the return value
+    // for evaluatePrefixExpression function.
     static private String calculatedOutput = "";
 
     /**
@@ -64,9 +67,8 @@ public class PrefixProcess {
         // If the counter is equal to 0, then the prefix is valid.
         if (counter == 0 && !tokenScanner.hasNext()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
 
