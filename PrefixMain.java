@@ -28,7 +28,16 @@ public class PrefixMain {
     public static void validatePrefix(String fileName) throws FileNotFoundException {
         Scanner prefixFile = new Scanner(new FileReader(fileName)); /* Scanner object that will read the file. */
         while (prefixFile.hasNextLine()) {
-            System.out.println(PrefixProcess.validatePrefixExpression(prefixFile.nextLine(),1));
+            String prefixExpression = prefixFile.nextLine();
+            if (PrefixProcess.validatePrefixExpression(prefixExpression,1)) {
+                System.out.println("Valid Expression: " + prefixExpression);
+                String outputValue = PrefixProcess.evaluatePrefixExpression(prefixExpression);
+                System.out.println("Output Value: " + outputValue);
+
+                System.out.println("--------------");
+            } else {
+                System.out.println("Invalid Expression: " + prefixExpression);
+            }
         }
     }
 }
